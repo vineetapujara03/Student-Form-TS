@@ -245,7 +245,7 @@ async function loadStudent(studentId: number | undefined): Promise<void> {
 
 async function updateStudent(studentId: number): Promise<void> {
   
-  const student : Student = await axios.get(`${api_url2}/${studentId}`);
+  //const student : Student = await axios.get(`${api_url2}/${studentId}`);
 
   await loadStudent(studentId); 
   await axios.delete(`${api_url2}/${studentId}`);
