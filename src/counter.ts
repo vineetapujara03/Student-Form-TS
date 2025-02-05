@@ -43,7 +43,8 @@ async function listStudents() {
     const students :Student[] = await grabStudents();
     
     if (students.length === 0) {
-        content.innerHTML = "<p>No students found. Add a student.</p>";
+      if(content)  
+      content.innerHTML = "<p>No students found. Add a student.</p>";
     } else {
       
         const table = `
@@ -81,7 +82,7 @@ async function listStudents() {
 </div>
 
         `;
-          
+        if(content)
         content.innerHTML = table;
         loadEventListeners();
         getChart(students);
@@ -167,7 +168,7 @@ export async function getChart(students:Student[]){
     
     const app: HTMLDivElement | null= document.querySelector("#app");
     app?.appendChild(ctx);
-   
+     //@ts-ignore
     new Chart(ctx, {
       type: 'bar',
       data: {
